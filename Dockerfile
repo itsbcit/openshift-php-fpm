@@ -11,7 +11,7 @@ COPY php-fpm-www.conf /etc/php7/php-fpm.d/www.conf
 # from docker/openshift-php-fpm on stash
 
 # # Install selected extensions and other stuff
-# RUN apk --no-cache add libpng-dev curl less git zip ca-certificates rsync
+# RUN apk --no-cache add libpng-dev curl less git zip ca-certificates rsync     17.5>34.8MB this stuff doubles image size probably not needed on base
 # RUN apk --no-cache add php7 php7-fpm php7-mysqli php7-json php7-openssl php7-curl \
 #     php7-zlib php7-xml php7-phar php7-intl php7-dom php7-xmlreader php7-ctype \
 #     php7-mbstring php7-gd php7-zip php7-mcrypt php7-xdebug \
