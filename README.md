@@ -2,7 +2,7 @@
 
 ## Default Behavior
 
-Runs default php-fpm server. No extensions, so probably not that useful.
+Runs default php-fpm server. **No extensions**, so probably not that useful by itself. This is more for common image base.
 
 Runs on port 9000
 
