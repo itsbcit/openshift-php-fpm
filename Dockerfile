@@ -1,4 +1,4 @@
-FROM bcit/alpine
+FROM bcit/alpine:3.9
 
 RUN apk add --no-cache \
     php7 php7-fpm
