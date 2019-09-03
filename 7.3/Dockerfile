@@ -79,7 +79,6 @@ RUN apk add --no-cache \
     php7-pecl-ast \
     php7-pecl-couchbase \
     php7-pecl-event \
-    php7-pecl-gmagick \
     php7-pecl-igbinary \
     php7-pecl-imagick \
     php7-pecl-lzf \

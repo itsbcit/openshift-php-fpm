@@ -96,7 +96,6 @@ vars:
     - ast
     - couchbase
     - event
-    - gmagick
     - igbinary
     - imagick
     - lzf
