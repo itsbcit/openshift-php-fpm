@@ -1,5 +1,5 @@
 FROM bcit/alpine:3.10
-LABEL build_id="1567543437"
+LABEL build_id="1567548480"
 
 RUN apk add --no-cache \
     curl \
