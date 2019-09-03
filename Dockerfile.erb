@@ -1,4 +1,7 @@
 FROM bcit/alpine:3.10
+
+ENV HOME /application
+
 <%= snippet('labels', binding) -%>
 
 RUN apk add --no-cache \
