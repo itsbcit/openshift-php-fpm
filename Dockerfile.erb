@@ -1,7 +1,14 @@
-FROM bcit/alpine:3.9
+FROM bcit/alpine:3.10
+<%= snippet('labels', binding) -%>
 
 RUN apk add --no-cache \
-    php7 php7-fpm
+    php7=<%= image.vars['php_apk_version'] -%>
+<% image.vars['php_extensions'].each do |ext| -%> \
+    php7-<%= ext %>=<%= image.vars['php_apk_version'] -%>
+<% end -%>
+<% image.vars['php_pecl'].each do |ext| -%> \
+    php7-pecl-<%= ext -%>
+<% end %>
 
 RUN sed -i "s/;error_log = log\/php7\/error.log/error_log = \/dev\/stderr/" /etc/php7/php-fpm.conf
 COPY php-fpm-www.conf /etc/php7/php-fpm.d/www.conf
