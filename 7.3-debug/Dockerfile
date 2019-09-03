@@ -102,6 +102,8 @@ RUN apk add --no-cache \
     php7-phpdbg=7.3.9-r0 \
     php7-pecl-xdebug
 
+COPY --from=geshan/php-composer-alpine:php7 /usr/bin/composer /usr/bin/composer
+
 RUN sed -i "s/;error_log = log\/php7\/error.log/error_log = \/dev\/stderr/" /etc/php7/php-fpm.conf
 COPY php-fpm-www.conf /etc/php7/php-fpm.d/www.conf
 RUN chmod 775 -R /etc/php7/
