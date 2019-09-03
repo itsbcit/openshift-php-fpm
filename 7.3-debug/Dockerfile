@@ -2,8 +2,10 @@ FROM bcit/alpine:3.10
 LABEL build_id="1567543437"
 
 RUN apk add --no-cache \
+    curl \
     git \
     rsync \
+    wget \
     php7=7.3.9-r0 \
     php7-bcmath=7.3.9-r0 \
     php7-bz2=7.3.9-r0 \
