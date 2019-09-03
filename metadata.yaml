@@ -20,22 +20,65 @@ vars:
   php_debug_pecl:
     - xdebug
   php_extensions:
+    - bcmath
+    - bz2
+    - calendar
+    - cgi
     - common
     - ctype
     - curl
+    - dba
     - dom
+    - enchant
+    - exif
+    - fileinfo
     - fpm
+    - ftp
     - gd
+    - gettext
+    - gmp
+    - iconv
+    - imap
     - intl
     - json
     - ldap
     - mbstring
     - mysqli
     - mysqlnd
+    - odbc
+    - opcache
     - openssl
+    - pcntl
+    - pdo
+    - pdo_dblib
+    - pdo_mysql
+    - pdo_odbc
+    - pdo_pgsql
+    - pdo_sqlite
+    - pgsql
     - phar
+    - posix
+    - pspell
+    - recode
+    - session
+    - shmop
+    - simplexml
+    - snmp
+    - soap
+    - sockets
+    - sodium
+    - sqlite3
+    - sysvmsg
+    - sysvsem
+    - sysvshm
+    - tidy
+    - tokenizer
+    - wddx
     - xml
     - xmlreader
+    - xmlrpc
+    - xmlwriter
+    - xsl
     - zip
   php_pear:
     - mail_mime
@@ -49,5 +92,23 @@ vars:
     - net_smtp-doc
     - net_sieve
   php_pecl:
-    - redis
+    - amqp
+    - ast
+    - couchbase
+    - event
+    - gmagick
+    - igbinary
+    - imagick
+    - lzf
+    - mailparse
     - mcrypt
+    - memcached
+    - msgpack
+    - oauth
+    - protobuf
+    - redis
+    - ssh2
+    - timezonedb
+    - vips
+    - yaml
+    - zmq
