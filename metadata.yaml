@@ -2,7 +2,7 @@
 image_name: openshift-php-fpm
 versions:
   '7.3':
-    suffixes:
+    version_tags:
       - '7.3-latest'
       - '7-latest'
       - '7.3.9'
