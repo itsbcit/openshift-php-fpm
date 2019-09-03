@@ -2,6 +2,8 @@ FROM bcit/alpine:3.10
 <%= snippet('labels', binding) -%>
 
 RUN apk add --no-cache \
+    git \
+    rsync \
     php7=<%= image.vars['php_apk_version'] -%>
 <% image.vars['php_extensions'].each do |ext| -%> \
     php7-<%= ext %>=<%= image.vars['php_apk_version'] -%>
