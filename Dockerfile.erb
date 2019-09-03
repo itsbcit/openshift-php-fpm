@@ -8,6 +8,9 @@ RUN apk add --no-cache \
 <% image.vars['php_extensions'].each do |ext| -%> \
     php7-<%= ext %>=<%= image.vars['php_apk_version'] -%>
 <% end -%>
+<% image.vars['php_pear'].each do |ext| -%> \
+    php7-pear-<%= ext -%>
+<% end -%>
 <% image.vars['php_pecl'].each do |ext| -%> \
     php7-pecl-<%= ext -%>
 <% end %>

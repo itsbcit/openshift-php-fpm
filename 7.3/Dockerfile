@@ -20,6 +20,16 @@ RUN apk add --no-cache \
     php7-xml=7.3.9-r0 \
     php7-xmlreader=7.3.9-r0 \
     php7-zip=7.3.9-r0 \
+    php7-pear-mail_mime \
+    php7-pear-mdb2_driver_mysql \
+    php7-pear-auth_sasl2 \
+    php7-pear-net_socket \
+    php7-pear-mdb2_driver_pgsql \
+    php7-pear-net_smtp \
+    php7-pear-net_idna2 \
+    php7-pear-auth_sasl \
+    php7-pear-net_smtp-doc \
+    php7-pear-net_sieve \
     php7-pecl-redis \
     php7-pecl-mcrypt
 

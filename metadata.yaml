@@ -36,6 +36,17 @@ vars:
     - xml
     - xmlreader
     - zip
+  php_pear:
+    - mail_mime
+    - mdb2_driver_mysql
+    - auth_sasl2
+    - net_socket
+    - mdb2_driver_pgsql
+    - net_smtp
+    - net_idna2
+    - auth_sasl
+    - net_smtp-doc
+    - net_sieve
   php_pecl:
     - redis
     - mcrypt
