@@ -40,6 +40,11 @@ RUN chmod 775 -R /etc/php7/
 
 COPY 50-copy-php-fpm-config.sh /docker-entrypoint.d/
 
-WORKDIR "/application"
+RUN mkdir -p /application \
+ && chown 0:0 /application \
+ && chmod 775 /application
+VOLUME /application
+
+WORKDIR /application
 EXPOSE 9000
 CMD ["/usr/sbin/php-fpm7", "-F", "-O", "-y", "/etc/php7/php-fpm.conf"]
