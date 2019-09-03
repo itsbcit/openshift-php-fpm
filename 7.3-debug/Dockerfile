@@ -32,6 +32,10 @@ RUN apk add --no-cache \
     php7-pear-net_smtp-doc \
     php7-pear-net_sieve \
     php7-pecl-mcrypt \
+
+RUN apk add --no-cache \
+    php7=7.3.9-r0 \
+    php7-phpdbg=7.3.9-r0 \
     php7-pecl-xdebug
 
 RUN sed -i "s/;error_log = log\/php7\/error.log/error_log = \/dev\/stderr/" /etc/php7/php-fpm.conf

@@ -11,13 +11,14 @@ versions:
 variants:
   '':
   debug:
-    vars:
-      php_pecl:
-        - xdebug
 files:
   - 'php-fpm-www.conf'
   - '50-copy-php-fpm-config.sh'
 vars:
+  php_debug_extensions:
+    - phpdbg
+  php_debug_pecl:
+    - xdebug
   php_extensions:
     - common
     - ctype
