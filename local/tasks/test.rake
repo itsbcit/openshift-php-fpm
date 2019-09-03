@@ -11,6 +11,7 @@ task :test do
       sh "docker exec #{container} php -v"
       sh "docker exec #{container} php -m"
       sh "docker exec #{container} php -i"
+      sh "docker exec #{container} composer search mysql >/dev/null"
     ensure
       sh "docker kill #{container}"
     end
