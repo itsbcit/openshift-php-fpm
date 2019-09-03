@@ -1,0 +1,41 @@
+---
+image_name: openshift-php-fpm
+versions:
+  '7.3':
+    suffixes:
+      - '7.3-latest'
+      - '7-latest'
+      - '7.3.9'
+    vars:
+      php_apk_version: '7.3.9-r0'
+variants:
+  '':
+  debug:
+    vars:
+      php_pecl:
+        - xdebug
+files:
+  - 'php-fpm-www.conf'
+  - '50-copy-php-fpm-config.sh'
+vars:
+  php_extensions:
+    - common
+    - ctype
+    - curl
+    - dom
+    - fpm
+    - gd
+    - intl
+    - json
+    - ldap
+    - mbstring
+    - mysqli
+    - mysqlnd
+    - openssl
+    - phar
+    - xml
+    - xmlreader
+    - zip
+  php_pecl:
+    - redis
+    - mcrypt
