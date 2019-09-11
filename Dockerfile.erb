@@ -43,7 +43,6 @@ COPY 50-copy-php-fpm-config.sh /docker-entrypoint.d/
 RUN mkdir -p /application \
  && chown 0:0 /application \
  && chmod 775 /application
-VOLUME /application
 
 WORKDIR /application
 EXPOSE 9000

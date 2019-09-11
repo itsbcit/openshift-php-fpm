@@ -2,7 +2,7 @@ FROM bcit/alpine:3.10
 
 ENV HOME /application
 
-LABEL build_id="1567549702"
+LABEL build_id="1568233234"
 
 RUN apk add --no-cache \
     curl \
@@ -116,7 +116,6 @@ COPY 50-copy-php-fpm-config.sh /docker-entrypoint.d/
 RUN mkdir -p /application \
  && chown 0:0 /application \
  && chmod 775 /application
-VOLUME /application
 
 WORKDIR /application
 EXPOSE 9000
