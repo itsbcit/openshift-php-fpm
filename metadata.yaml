@@ -5,9 +5,9 @@ versions:
     version_tags:
       - '7.3-latest'
       - '7-latest'
-      - '7.3.9'
+      - '7.3.10'
     vars:
-      php_apk_version: '7.3.9-r0'
+      php_apk_version: '7.3.10-r0'
 variants:
   '':
   debug:
