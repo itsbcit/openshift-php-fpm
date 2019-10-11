@@ -1,8 +1,15 @@
 # php-fpm OpenShift image
 
+## Labels
+
+See [Docker Cloud](https://cloud.docker.com/u/bcit/repository/docker/bcit/openshift-php-fpm/tags) for full listing but the main ones are:
+
+* [`7.3-latest-latest`](https://github.com/itsbcit/openshift-php-fpm/blob/master/7.3/Dockerfile)
+* [`7.3-debug-latest`](https://github.com/itsbcit/openshift-php-fpm/blob/master/7.3-debug/Dockerfile)
+
 ## Default Behavior
 
-Runs default php-fpm server. **No extensions**, so probably not that useful by itself. This is more for common image base.
+Runs kitchen sink php-fpm server. Includes all the extentions! See `php_extensions:` section in [metadata.yaml](https://github.com/itsbcit/openshift-php-fpm/blob/master/metadata.yaml)
 
 Runs on port 9000
 
@@ -10,19 +17,6 @@ Runs on port 9000
 ```bash
 docker pull bcit/openshift-php-fpm
 docker run -it -u 100000 -p 9000:9000 bcit/openshift-php-fpm
-```
-
-## How to Modify
-
-### Extend the Image
-
-#### Add PHP extensions
-
-```dockerfile
-FROM bcit/openshift-php-fpm
-RUN apk add --no-cache \
-    php7-soap php7-ldap php7-iconv \
-    php7-simplexml php7-session
 ```
 
 #### Configure php-fpm
