@@ -1,0 +1,119 @@
+FROM bcit/alpine:3.13-latest
+
+ENV HOME /application
+
+LABEL build_id="1614990423"
+
+RUN apk add --no-cache \
+    curl \
+    git \
+    rsync \
+    wget \
+    php7=7.4.15-r0 \
+    php7-bcmath=7.4.15-r0 \
+    php7-bz2=7.4.15-r0 \
+    php7-calendar=7.4.15-r0 \
+    php7-cgi=7.4.15-r0 \
+    php7-common=7.4.15-r0 \
+    php7-ctype=7.4.15-r0 \
+    php7-curl=7.4.15-r0 \
+    php7-dba=7.4.15-r0 \
+    php7-dom=7.4.15-r0 \
+    php7-enchant=7.4.15-r0 \
+    php7-exif=7.4.15-r0 \
+    php7-fileinfo=7.4.15-r0 \
+    php7-fpm=7.4.15-r0 \
+    php7-ftp=7.4.15-r0 \
+    php7-gd=7.4.15-r0 \
+    php7-gettext=7.4.15-r0 \
+    php7-gmp=7.4.15-r0 \
+    php7-iconv=7.4.15-r0 \
+    php7-imap=7.4.15-r0 \
+    php7-intl=7.4.15-r0 \
+    php7-json=7.4.15-r0 \
+    php7-ldap=7.4.15-r0 \
+    php7-mbstring=7.4.15-r0 \
+    php7-mysqli=7.4.15-r0 \
+    php7-mysqlnd=7.4.15-r0 \
+    php7-odbc=7.4.15-r0 \
+    php7-opcache=7.4.15-r0 \
+    php7-openssl=7.4.15-r0 \
+    php7-pcntl=7.4.15-r0 \
+    php7-pear=7.4.15-r0 \
+    php7-pdo=7.4.15-r0 \
+    php7-pdo_dblib=7.4.15-r0 \
+    php7-pdo_mysql=7.4.15-r0 \
+    php7-pdo_odbc=7.4.15-r0 \
+    php7-pdo_pgsql=7.4.15-r0 \
+    php7-pdo_sqlite=7.4.15-r0 \
+    php7-pgsql=7.4.15-r0 \
+    php7-phar=7.4.15-r0 \
+    php7-posix=7.4.15-r0 \
+    php7-pspell=7.4.15-r0 \
+    php7-session=7.4.15-r0 \
+    php7-shmop=7.4.15-r0 \
+    php7-simplexml=7.4.15-r0 \
+    php7-snmp=7.4.15-r0 \
+    php7-soap=7.4.15-r0 \
+    php7-sockets=7.4.15-r0 \
+    php7-sodium=7.4.15-r0 \
+    php7-sqlite3=7.4.15-r0 \
+    php7-sysvmsg=7.4.15-r0 \
+    php7-sysvsem=7.4.15-r0 \
+    php7-sysvshm=7.4.15-r0 \
+    php7-tidy=7.4.15-r0 \
+    php7-tokenizer=7.4.15-r0 \
+    php7-xml=7.4.15-r0 \
+    php7-xmlreader=7.4.15-r0 \
+    php7-xmlrpc=7.4.15-r0 \
+    php7-xmlwriter=7.4.15-r0 \
+    php7-xsl=7.4.15-r0 \
+    php7-zip=7.4.15-r0 \
+    php7-pecl-amqp \
+    php7-pecl-ast \
+    php7-pecl-couchbase \
+    php7-pecl-event \
+    php7-pecl-igbinary \
+    php7-pecl-imagick \
+    php7-pecl-lzf \
+    php7-pecl-mailparse \
+    php7-pecl-mcrypt \
+    php7-pecl-memcached \
+    php7-pecl-msgpack \
+    php7-pecl-oauth \
+    php7-pecl-protobuf \
+    php7-pecl-redis \
+    php7-pecl-ssh2 \
+    php7-pecl-timezonedb \
+    php7-pecl-vips \
+    php7-pecl-yaml \
+    php7-pecl-zmq
+
+RUN pear7 channel-update pear.php.net && pear7 install  \
+    mail_mime \
+    mdb2_driver_mysql \
+    auth_sasl2 \
+    net_socket \
+    mdb2_driver_pgsql \
+    net_smtp \
+    net_idna2 \
+    auth_sasl \
+    net_smtp \
+    net_sieve
+
+
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+RUN sed -i "s/;error_log = log\/php7\/error.log/error_log = \/dev\/stderr/" /etc/php7/php-fpm.conf
+COPY php-fpm-www.conf /etc/php7/php-fpm.d/www.conf
+RUN chmod 775 -R /etc/php7/
+
+COPY 50-copy-php-fpm-config.sh /docker-entrypoint.d/
+
+RUN mkdir -p /application \
+ && chown 0:0 /application \
+ && chmod 775 /application
+
+WORKDIR /application
+EXPOSE 9000
+CMD ["/usr/sbin/php-fpm7", "-F", "-O", "-y", "/etc/php7/php-fpm.conf"]
