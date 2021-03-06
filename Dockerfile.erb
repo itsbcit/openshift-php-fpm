@@ -1,4 +1,4 @@
-FROM bcit/alpine:3.10
+FROM bcit/alpine:<%= image.vars['alpine_version'] %>-latest
 
 ENV HOME /application
 
@@ -9,34 +9,39 @@ RUN apk add --no-cache \
     git \
     rsync \
     wget \
-    php7=<%= image.vars['php_apk_version'] -%>
+    php<%= image.vars['php_maj_ver'] -%>=<%= image.vars['php_apk_version'] -%>
 <% image.vars['php_extensions'].each do |ext| -%> \
-    php7-<%= ext %>=<%= image.vars['php_apk_version'] -%>
-<% end -%>
-<% image.vars['php_pear'].each do |ext| -%> \
-    php7-pear-<%= ext -%>
+    php<%= image.vars['php_maj_ver'] -%>-<%= ext %>=<%= image.vars['php_apk_version'] -%>
 <% end -%>
 <% image.vars['php_pecl'].each do |ext| -%> \
-    php7-pecl-<%= ext -%>
+    php<%= image.vars['php_maj_ver'] -%>-pecl-<%= ext -%>
+<% end %>
+
+RUN pear<%= image.vars['php_maj_ver'] %> channel-update pear.php.net && pear<%= image.vars['php_maj_ver'] %> install <% -%>
+<% image.vars['php_pear'].each do |ext| -%> \
+    <%= ext -%>
 <% end %>
 
 <% if image.variant == 'debug' -%>
 RUN apk add --no-cache \
-    php7=<%= image.vars['php_apk_version'] -%>
+    php<%= image.vars['php_maj_ver'] -%>=<%= image.vars['php_apk_version'] -%>
 <% image.vars['php_debug_extensions'].each do |ext| -%> \
-    php7-<%= ext %>=<%= image.vars['php_apk_version'] -%>
+    php<%= image.vars['php_maj_ver'] -%>-<%= ext %>=<%= image.vars['php_apk_version'] -%>
 <% end -%>
 <% image.vars['php_debug_pecl'].each do |ext| -%> \
-    php7-pecl-<%= ext -%>
+    php<%= image.vars['php_maj_ver'] -%>-pecl-<%= ext -%>
 <% end -%>
 
 <% end -%>
 
-COPY --from=geshan/php-composer-alpine:php7 /usr/bin/composer /usr/bin/composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+<% if image.vars['php_maj_ver'] == '8' -%>
+RUN ln -s /usr/bin/php8 /usr/bin/php
+<% end -%>
 
-RUN sed -i "s/;error_log = log\/php7\/error.log/error_log = \/dev\/stderr/" /etc/php7/php-fpm.conf
-COPY php-fpm-www.conf /etc/php7/php-fpm.d/www.conf
-RUN chmod 775 -R /etc/php7/
+RUN sed -i "s/;error_log = log\/php<%= image.vars['php_maj_ver'] -%>\/error.log/error_log = \/dev\/stderr/" /etc/php<%= image.vars['php_maj_ver'] -%>/php-fpm.conf
+COPY php-fpm-www.conf /etc/php<%= image.vars['php_maj_ver'] -%>/php-fpm.d/www.conf
+RUN chmod 775 -R /etc/php<%= image.vars['php_maj_ver'] -%>/
 
 COPY 50-copy-php-fpm-config.sh /docker-entrypoint.d/
 
@@ -46,4 +51,4 @@ RUN mkdir -p /application \
 
 WORKDIR /application
 EXPOSE 9000
-CMD ["/usr/sbin/php-fpm7", "-F", "-O", "-y", "/etc/php7/php-fpm.conf"]
+CMD ["/usr/sbin/php-fpm<%= image.vars['php_maj_ver'] -%>", "-F", "-O", "-y", "/etc/php<%= image.vars['php_maj_ver'] -%>/php-fpm.conf"]
