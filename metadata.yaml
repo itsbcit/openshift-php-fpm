@@ -10,97 +10,16 @@ versions:
       php_maj_ver: '7'
       alpine_version: '3.12'
       php_extensions:
-        - bcmath
-        - bz2
-        - calendar
-        - cgi
-        - common
-        - ctype
-        - curl
-        - dba
-        - dom
-        - enchant
-        - exif
-        - fileinfo
-        - fpm
-        - ftp
-        - gd
-        - gettext
-        - gmp
-        - iconv
-        - imap
-        - intl
         - json
-        - ldap
-        - mbstring
-        - mysqli
-        - mysqlnd
-        - odbc
-        - opcache
-        - openssl
-        - pcntl
-        - pear
-        - pdo
-        - pdo_dblib
-        - pdo_mysql
-        - pdo_odbc
-        - pdo_pgsql
-        - pdo_sqlite
-        - pgsql
-        - phar
-        - posix
-        - pspell
         - recode
-        - session
-        - shmop
-        - simplexml
-        - snmp
-        - soap
-        - sockets
-        - sodium
-        - sqlite3
-        - sysvmsg
-        - sysvsem
-        - sysvshm
-        - tidy
-        - tokenizer
         - wddx
-        - xml
-        - xmlreader
         - xmlrpc
-        - xmlwriter
-        - xsl
-        - zip
-      php_pear:
-        - mail_mime
-        - mdb2_driver_mysql
-        - auth_sasl2
-        - net_socket
-        - mdb2_driver_pgsql
-        - net_smtp
-        - net_idna2
-        - auth_sasl
-        - net_smtp
-        - net_sieve
-      php_pecl:
+      php-pecl:
         - amqp
-        - ast
         - couchbase
-        - event
-        - igbinary
-        - imagick
-        - lzf
-        - mailparse
-        - mcrypt
-        - memcached
-        - msgpack
-        - oauth
         - protobuf
-        - redis
         - ssh2
-        - timezonedb
-        - vips
-        - yaml
+        - xmlrpc
         - zmq
   '7.4':
     version_tags:
@@ -112,95 +31,15 @@ versions:
       php_maj_ver: '7'
       alpine_version: '3.13'
       php_extensions:
-        - bcmath
-        - bz2
-        - calendar
-        - cgi
-        - common
-        - ctype
-        - curl
-        - dba
-        - dom
-        - enchant
-        - exif
-        - fileinfo
-        - fpm
-        - ftp
-        - gd
-        - gettext
-        - gmp
-        - iconv
-        - imap
-        - intl
         - json
-        - ldap
-        - mbstring
-        - mysqli
-        - mysqlnd
-        - odbc
-        - opcache
-        - openssl
-        - pcntl
-        - pear
-        - pdo
-        - pdo_dblib
-        - pdo_mysql
-        - pdo_odbc
-        - pdo_pgsql
-        - pdo_sqlite
-        - pgsql
-        - phar
-        - posix
-        - pspell
-        - session
-        - shmop
-        - simplexml
-        - snmp
-        - soap
-        - sockets
-        - sodium
-        - sqlite3
-        - sysvmsg
-        - sysvsem
-        - sysvshm
-        - tidy
-        - tokenizer
-        - xml
-        - xmlreader
         - xmlrpc
-        - xmlwriter
-        - xsl
-        - zip
-      php_pear:
-        - mail_mime
-        - mdb2_driver_mysql
-        - auth_sasl2
-        - net_socket
-        - mdb2_driver_pgsql
-        - net_smtp
-        - net_idna2
-        - auth_sasl
-        - net_smtp
-        - net_sieve
       php_pecl:
         - amqp
-        - ast
         - couchbase
-        - event
-        - igbinary
-        - imagick
-        - lzf
-        - mailparse
-        - mcrypt
-        - memcached
-        - msgpack
-        - oauth
         - protobuf
-        - redis
+        # - recode #pkg not maintained
         - ssh2
-        - timezonedb
-        - vips
-        - yaml
+        - xmlrpc
         - zmq
   '8.0':
     version_tags:
@@ -212,94 +51,13 @@ versions:
       php_maj_ver: '8'
       alpine_version: '3.13'
       php_extensions:
-        - bcmath
-        - bz2
-        - calendar
-        - cgi
-        - common
-        - ctype
-        - curl
-        - dba
-        - dom
-        - enchant
-        - exif
-        - fileinfo
-        - fpm
-        - ftp
-        - gd
-        - gettext
-        - gmp
-        - iconv
-        - imap
-        - intl
-        - ldap
-        - mbstring
-        - mysqli
-        - mysqlnd
-        - odbc
-        - opcache
-        - openssl
-        - pcntl
-        - pear
-        - pdo
-        - pdo_dblib
-        - pdo_mysql
-        - pdo_odbc
-        - pdo_pgsql
-        - pdo_sqlite
-        - pgsql
-        - phar
-        - posix
-        - pspell
-        - session
-        - shmop
-        - simplexml
-        - snmp
-        - soap
-        - sockets
-        - sodium
-        - sqlite3
-        - sysvmsg
-        - sysvsem
-        - sysvshm
-        - tidy
-        - tokenizer
-        - xml
-        - xmlreader
-        - xmlwriter
-        - xsl
-        - zip
-      php_pear:
-        - mail_mime
-        - mdb2_driver_mysql
-        - auth_sasl2
-        - net_socket
-        - mdb2_driver_pgsql
-        - net_smtp
-        - net_idna2
-        - auth_sasl
-        - net_smtp
-        - net_sieve
       php_pecl:
         # - amqp #https://github.com/php-amqp/php-amqp/issues/386
-        - ast
         # - couchbase #pkg in edge
-        - event
-        - igbinary
-        - imagick
-        - lzf
-        - mailparse
-        - mcrypt
-        - memcached
-        - msgpack
-        - oauth
         # - protobuf #pkg in edge
-        - redis
+        # - recode #pkg not maintained
         # - ssh2 #pkg in edge
-        - timezonedb
-        - vips
         # - xmlrpc #pkg in edge
-        - yaml
         # - zmq #pkg in edge
 variants:
   '':
@@ -312,3 +70,87 @@ vars:
     - phpdbg
   php_debug_pecl:
     - xdebug
+  php_pear:
+    - mail_mime
+    - mdb2_driver_mysql
+    - auth_sasl2
+    - net_socket
+    - mdb2_driver_pgsql
+    - net_smtp
+    - net_idna2
+    - auth_sasl
+    - net_smtp
+    - net_sieve
+  php_pecl:
+    - ast
+    - event
+    - igbinary
+    - imagick
+    - lzf
+    - mailparse
+    - mcrypt
+    - memcached
+    - msgpack
+    - oauth
+    - redis
+    - timezonedb
+    - vips
+    - yaml
+  php_extensions:
+    - bcmath
+    - bz2
+    - calendar
+    - cgi
+    - common
+    - ctype
+    - curl
+    - dba
+    - dom
+    - enchant
+    - exif
+    - fileinfo
+    - fpm
+    - ftp
+    - gd
+    - gettext
+    - gmp
+    - iconv
+    - imap
+    - intl
+    - ldap
+    - mbstring
+    - mysqli
+    - mysqlnd
+    - odbc
+    - opcache
+    - openssl
+    - pcntl
+    - pear
+    - pdo
+    - pdo_dblib
+    - pdo_mysql
+    - pdo_odbc
+    - pdo_pgsql
+    - pdo_sqlite
+    - pgsql
+    - phar
+    - posix
+    - pspell
+    - session
+    - shmop
+    - simplexml
+    - snmp
+    - soap
+    - sockets
+    - sodium
+    - sqlite3
+    - sysvmsg
+    - sysvsem
+    - sysvshm
+    - tidy
+    - tokenizer
+    - xml
+    - xmlreader
+    - xmlwriter
+    - xsl
+    - zip
