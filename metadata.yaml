@@ -19,7 +19,6 @@ versions:
         - couchbase
         - protobuf
         - ssh2
-        - xmlrpc
         - zmq
   '7.4':
     version_tags:
@@ -39,7 +38,6 @@ versions:
         - protobuf
         # - recode #pkg not maintained
         - ssh2
-        - xmlrpc
         - zmq
   '8.0':
     version_tags:
