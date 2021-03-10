@@ -2,7 +2,7 @@ FROM bcit/alpine:3.13-latest
 
 ENV HOME /application
 
-LABEL build_id="1614990423"
+LABEL build_id="1615418649"
 
 RUN apk add --no-cache \
     curl \
@@ -30,7 +30,6 @@ RUN apk add --no-cache \
     php7-iconv=7.4.15-r0 \
     php7-imap=7.4.15-r0 \
     php7-intl=7.4.15-r0 \
-    php7-json=7.4.15-r0 \
     php7-ldap=7.4.15-r0 \
     php7-mbstring=7.4.15-r0 \
     php7-mysqli=7.4.15-r0 \
@@ -65,13 +64,12 @@ RUN apk add --no-cache \
     php7-tokenizer=7.4.15-r0 \
     php7-xml=7.4.15-r0 \
     php7-xmlreader=7.4.15-r0 \
-    php7-xmlrpc=7.4.15-r0 \
     php7-xmlwriter=7.4.15-r0 \
     php7-xsl=7.4.15-r0 \
     php7-zip=7.4.15-r0 \
-    php7-pecl-amqp \
+    php7-json=7.4.15-r0 \
+    php7-xmlrpc=7.4.15-r0 \
     php7-pecl-ast \
-    php7-pecl-couchbase \
     php7-pecl-event \
     php7-pecl-igbinary \
     php7-pecl-imagick \
@@ -81,12 +79,14 @@ RUN apk add --no-cache \
     php7-pecl-memcached \
     php7-pecl-msgpack \
     php7-pecl-oauth \
-    php7-pecl-protobuf \
     php7-pecl-redis \
-    php7-pecl-ssh2 \
     php7-pecl-timezonedb \
     php7-pecl-vips \
     php7-pecl-yaml \
+    php7-pecl-amqp \
+    php7-pecl-couchbase \
+    php7-pecl-protobuf \
+    php7-pecl-ssh2 \
     php7-pecl-zmq
 
 RUN pear7 channel-update pear.php.net && pear7 install  \
