@@ -2,7 +2,7 @@ FROM bcit/alpine:3.12-latest
 
 ENV HOME /application
 
-LABEL build_id="1622676113"
+LABEL build_id="1622676617"
 
 RUN apk add --no-cache \
     curl \

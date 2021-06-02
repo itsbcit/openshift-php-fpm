@@ -39,24 +39,24 @@ versions:
         # - recode #pkg not maintained
         - ssh2
         - zmq
-  '8.0':
-    version_tags:
-      - '8.0-latest'
-      - '8-latest'
-      - '8.0.2'
-    vars:
-      php_apk_version: '8.0.2-r0'
-      php_maj_ver: '8'
-      alpine_version: '3.13'
-      php_extensions:
-      php_pecl:
-        # - amqp #https://github.com/php-amqp/php-amqp/issues/386
-        # - couchbase #pkg in edge
-        # - protobuf #pkg in edge
-        # - recode #pkg not maintained
-        # - ssh2 #pkg in edge
-        # - xmlrpc #pkg in edge
-        # - zmq #pkg in edge
+  # '8.0':
+  #   version_tags:
+  #     - '8.0-latest'
+  #     - '8-latest'
+  #     - '8.0.2'
+  #   vars:
+  #     php_apk_version: '8.0.2-r0'
+  #     php_maj_ver: '8'
+  #     alpine_version: '3.13'
+  #     php_extensions:
+  #     php_pecl:
+  #       # - amqp #https://github.com/php-amqp/php-amqp/issues/386
+  #       # - couchbase #pkg in edge
+  #       # - protobuf #pkg in edge
+  #       # - recode #pkg not maintained
+  #       # - ssh2 #pkg in edge
+  #       # - xmlrpc #pkg in edge
+  #       # - zmq #pkg in edge
 variants:
   '':
   debug:
