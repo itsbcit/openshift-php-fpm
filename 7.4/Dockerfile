@@ -2,73 +2,73 @@ FROM bcit/alpine:3.13-latest
 
 ENV HOME /application
 
-LABEL build_id="1615418649"
+LABEL build_id="1622676113"
 
 RUN apk add --no-cache \
     curl \
     git \
     rsync \
     wget \
-    php7=7.4.15-r0 \
-    php7-bcmath=7.4.15-r0 \
-    php7-bz2=7.4.15-r0 \
-    php7-calendar=7.4.15-r0 \
-    php7-cgi=7.4.15-r0 \
-    php7-common=7.4.15-r0 \
-    php7-ctype=7.4.15-r0 \
-    php7-curl=7.4.15-r0 \
-    php7-dba=7.4.15-r0 \
-    php7-dom=7.4.15-r0 \
-    php7-enchant=7.4.15-r0 \
-    php7-exif=7.4.15-r0 \
-    php7-fileinfo=7.4.15-r0 \
-    php7-fpm=7.4.15-r0 \
-    php7-ftp=7.4.15-r0 \
-    php7-gd=7.4.15-r0 \
-    php7-gettext=7.4.15-r0 \
-    php7-gmp=7.4.15-r0 \
-    php7-iconv=7.4.15-r0 \
-    php7-imap=7.4.15-r0 \
-    php7-intl=7.4.15-r0 \
-    php7-ldap=7.4.15-r0 \
-    php7-mbstring=7.4.15-r0 \
-    php7-mysqli=7.4.15-r0 \
-    php7-mysqlnd=7.4.15-r0 \
-    php7-odbc=7.4.15-r0 \
-    php7-opcache=7.4.15-r0 \
-    php7-openssl=7.4.15-r0 \
-    php7-pcntl=7.4.15-r0 \
-    php7-pear=7.4.15-r0 \
-    php7-pdo=7.4.15-r0 \
-    php7-pdo_dblib=7.4.15-r0 \
-    php7-pdo_mysql=7.4.15-r0 \
-    php7-pdo_odbc=7.4.15-r0 \
-    php7-pdo_pgsql=7.4.15-r0 \
-    php7-pdo_sqlite=7.4.15-r0 \
-    php7-pgsql=7.4.15-r0 \
-    php7-phar=7.4.15-r0 \
-    php7-posix=7.4.15-r0 \
-    php7-pspell=7.4.15-r0 \
-    php7-session=7.4.15-r0 \
-    php7-shmop=7.4.15-r0 \
-    php7-simplexml=7.4.15-r0 \
-    php7-snmp=7.4.15-r0 \
-    php7-soap=7.4.15-r0 \
-    php7-sockets=7.4.15-r0 \
-    php7-sodium=7.4.15-r0 \
-    php7-sqlite3=7.4.15-r0 \
-    php7-sysvmsg=7.4.15-r0 \
-    php7-sysvsem=7.4.15-r0 \
-    php7-sysvshm=7.4.15-r0 \
-    php7-tidy=7.4.15-r0 \
-    php7-tokenizer=7.4.15-r0 \
-    php7-xml=7.4.15-r0 \
-    php7-xmlreader=7.4.15-r0 \
-    php7-xmlwriter=7.4.15-r0 \
-    php7-xsl=7.4.15-r0 \
-    php7-zip=7.4.15-r0 \
-    php7-json=7.4.15-r0 \
-    php7-xmlrpc=7.4.15-r0 \
+    php7=7.4.19-r0 \
+    php7-bcmath=7.4.19-r0 \
+    php7-bz2=7.4.19-r0 \
+    php7-calendar=7.4.19-r0 \
+    php7-cgi=7.4.19-r0 \
+    php7-common=7.4.19-r0 \
+    php7-ctype=7.4.19-r0 \
+    php7-curl=7.4.19-r0 \
+    php7-dba=7.4.19-r0 \
+    php7-dom=7.4.19-r0 \
+    php7-enchant=7.4.19-r0 \
+    php7-exif=7.4.19-r0 \
+    php7-fileinfo=7.4.19-r0 \
+    php7-fpm=7.4.19-r0 \
+    php7-ftp=7.4.19-r0 \
+    php7-gd=7.4.19-r0 \
+    php7-gettext=7.4.19-r0 \
+    php7-gmp=7.4.19-r0 \
+    php7-iconv=7.4.19-r0 \
+    php7-imap=7.4.19-r0 \
+    php7-intl=7.4.19-r0 \
+    php7-ldap=7.4.19-r0 \
+    php7-mbstring=7.4.19-r0 \
+    php7-mysqli=7.4.19-r0 \
+    php7-mysqlnd=7.4.19-r0 \
+    php7-odbc=7.4.19-r0 \
+    php7-opcache=7.4.19-r0 \
+    php7-openssl=7.4.19-r0 \
+    php7-pcntl=7.4.19-r0 \
+    php7-pear=7.4.19-r0 \
+    php7-pdo=7.4.19-r0 \
+    php7-pdo_dblib=7.4.19-r0 \
+    php7-pdo_mysql=7.4.19-r0 \
+    php7-pdo_odbc=7.4.19-r0 \
+    php7-pdo_pgsql=7.4.19-r0 \
+    php7-pdo_sqlite=7.4.19-r0 \
+    php7-pgsql=7.4.19-r0 \
+    php7-phar=7.4.19-r0 \
+    php7-posix=7.4.19-r0 \
+    php7-pspell=7.4.19-r0 \
+    php7-session=7.4.19-r0 \
+    php7-shmop=7.4.19-r0 \
+    php7-simplexml=7.4.19-r0 \
+    php7-snmp=7.4.19-r0 \
+    php7-soap=7.4.19-r0 \
+    php7-sockets=7.4.19-r0 \
+    php7-sodium=7.4.19-r0 \
+    php7-sqlite3=7.4.19-r0 \
+    php7-sysvmsg=7.4.19-r0 \
+    php7-sysvsem=7.4.19-r0 \
+    php7-sysvshm=7.4.19-r0 \
+    php7-tidy=7.4.19-r0 \
+    php7-tokenizer=7.4.19-r0 \
+    php7-xml=7.4.19-r0 \
+    php7-xmlreader=7.4.19-r0 \
+    php7-xmlwriter=7.4.19-r0 \
+    php7-xsl=7.4.19-r0 \
+    php7-zip=7.4.19-r0 \
+    php7-json=7.4.19-r0 \
+    php7-xmlrpc=7.4.19-r0 \
     php7-pecl-ast \
     php7-pecl-event \
     php7-pecl-igbinary \
