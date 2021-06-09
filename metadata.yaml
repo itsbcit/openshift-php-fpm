@@ -1,5 +1,9 @@
 ---
 image_name: openshift-php-fpm
+registries:
+  - url: bcit.io
+  - url: docker.io
+    org_name: bcit
 versions:
   '7.3':
     version_tags:
